@@ -1,133 +1,32 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-:root {
-  --background: 5, 5, 15; /* Dark space color */
-}
-
-body {
-  background-color: rgb(var(--background));
-  color: white;
-  margin: 0;
-  overflow-x: hidden;
-}
-
-/* 1. Twinkling Stars */
-@keyframes twinkle {
-  0%, 100% { opacity: 0.2; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.2); }
-}
-
-.star {
-  position: absolute;
-  border-radius: 50%;
-  background: white;
-  animation: twinkle var(--duration) ease-in-out infinite;
-  animation-delay: var(--delay);
-}
-
-/* 2. Hand Wave */
-@keyframes wave {
-  0%, 100% { transform: rotate(0deg); }
-  25% { transform: rotate(20deg); }
-  75% { transform: rotate(-10deg); }
-}
-
-/* 3. Rocket Floating */
-@keyframes float-rocket {
-  0% { transform: translateY(0px) rotate(-3deg); }
-  50% { transform: translateY(-30px) rotate(3deg); }
-  100% { transform: translateY(0px) rotate(-3deg); }
-}
-
-/* Smooth Scrolling for the Navbar links */
 html {
   scroll-behavior: smooth;
 }
 
-/* Nebula background pulse */
-@keyframes nebula-pulse {
-  0%, 100% { opacity: 0.5; transform: scale(1) translate(-50%, -50%); }
-  50% { opacity: 0.8; transform: scale(1.1) translate(-48%, -52%); }
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background: #050816;
+  color: white;
+  font-family: "Inter", sans-serif;
 }
 
-/* Floating animation for pills */
-@keyframes float-nebula {
-  0%, 100% { transform: translateY(0) translateX(0); }
-  33% { transform: translateY(-10px) translateX(5px); }
-  66% { transform: translateY(5px) translateX(-8px); }
+* {
+  box-sizing: border-box;
 }
 
-.nebula-container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 80%;
-  height: 80%;
-  background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(168, 85, 247, 0.1) 40%, transparent 70%);
-  filter: blur(60px);
-  z-index: -1;
-  animation: nebula-pulse 10s ease-in-out infinite;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Space Grotesk", sans-serif;
 }
 
-@keyframes float-project {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
+::selection {
+  background: #8b5cf6;
+  color: white;
 }
 
-.project-card-shadow {
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
-}
-
-.project-card-shadow:hover {
-  box-shadow: 0 20px 40px -15px rgba(99, 102, 241, 0.3);
-}
-
-/* Blackhole Vortex Spinning */
-/* Blackhole Vortex Spinning */
-@keyframes vortex-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-/* The Blackhole Core Pulse */
-@keyframes hole-pulse {
-  0%, 100% { transform: scale(1); opacity: 0.8; }
-  50% { transform: scale(1.1); opacity: 1; }
-}
-
-.event-horizon {
-  background: radial-gradient(circle, #000 20%, #0c0a21 40%, #1e1b4b 60%, transparent 80%);
-  animation: hole-pulse 5s ease-in-out infinite, vortex-spin 20s linear infinite;
-}
-
-/* Sucking animation for stars into the center */
-@keyframes suck-star {
-  0% { transform: translate(var(--x), var(--y)) scale(1); opacity: 0.7; }
-  100% { transform: translate(0, 0) scale(0); opacity: 0; }
-}
-
-.sucking-star {
-  position: absolute;
-  width: 2px;
-  height: 2px;
-  background: white;
-  border-radius: 50%;
-  top: 50%;
-  left: 50%;
-  animation: suck-star var(--duration) linear infinite;
-}
-
-/* Animated dots for "Transmitting..." */
-.dots::after {
-  content: '.';
-  animation: dots 1.5s steps(5, end) infinite;
-}
-
-@keyframes dots {
-  0%, 20% { content: '.'; }
-  40% { content: '..'; }
-  60% { content: '...'; }
-  80%, 100% { content: ''; }
-}

@@ -1,26 +1,28 @@
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import StarBackground from './components/StarBackground'
-import Skills from './components/Skills'
-import Projects from './components/Projects'
-import Contact from './components/Contact'
-import Footer  from './components/Footer'
+import Background from "./components/three/Background";
+import Navbar from "./components/layout/Navbar";
 
-function App() {
+import Hero from "./components/sections/Hero";
+import Skills from "./components/sections/Skills";
+import Projects from "./components/sections/Projects";
+import Contact from "./components/sections/Contact";
+import useLenis from "./hooks/useLenis";
+import Footer from "./components/layout/Footer";
+
+
+export default function App() {
+  useLenis();
   return (
-    <div className="relative min-h-screen">
-      <StarBackground />
-      <div className="relative z-10">
-        {/* All sections will go here */}
-        <Navbar />
+    <>
+      <Background />
+      <Navbar />
+
+      <main className="relative z-10">
         <Hero />
         <Skills />
         <Projects />
         <Contact />
         <Footer />
-      </div>
-    </div>
-  )
+      </main>
+    </>
+  );
 }
-
-export default App
